@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Dependency Check Annotation Enabling -->
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+    <!-- Dependency Check -->
+    <bean name="prescription" class="org.example.dependencycheck.Prescription" p:id="432" p:patientName="Chad">
+        <property name="medicines">
+            <list>
+                <value>Ibuprofen</value>
+                <value>Carteroid</value>
+                <value>Morphine</value>
+            </list>
+        </property>
+    </bean>
+    <!-- Inner Bean -->
+    <bean name="employee" class="org.example.innerbeans.Employee">
+        <property name="address">
+            <bean class="org.example.innerbeans.Address" p:houseNumber="2270" p:street="Nebraska" p:city="New Jersey"/>
+        </property>
+    </bean>
+
+</beans>
